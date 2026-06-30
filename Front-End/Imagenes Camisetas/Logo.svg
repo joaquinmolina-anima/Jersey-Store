@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="100%" height="100%">
+  <defs>
+    <linearGradient id="red3D" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF4D4D;stop-opacity:1" />
+      <stop offset="20%" style="stop-color:#E31B23;stop-opacity:1" />
+      <stop offset="80%" style="stop-color:#800A0D;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#330000;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="goldHighlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#FF8C00;stop-opacity:0.2" />
+      <stop offset="100%" style="stop-color:#8B0000;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <linearGradient id="darkMetal3D" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4A4A4A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#1A1A1A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </linearGradient>
+
+    <linearGradient id="textSilver3D" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="40%" style="stop-color:#E0E0E0;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#999999;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFFFFF;stop-opacity:1" />
+    </linearGradient>
+
+    <radialGradient id="ballVolume" cx="35%" cy="35%" r="65%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="70%" style="stop-color:#D4D4D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#666666;stop-opacity:1" />
+    </radialGradient>
+
+    <radialGradient id="ballShadow" cx="50%" cy="50%" r="50%">
+      <stop offset="60%" style="stop-color:#111111;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:1" />
+    </radialGradient>
+
+    <filter id="deepShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="8" flood-color="#000000" flood-opacity="0.85"/>
+    </filter>
+    
+    <filter id="glowEdge">
+      <feDropShadow dx="0" dy="0" stdDeviation="3" flood-color="#FF2A2A" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#deepShadow)">
+    <path d="M 400,55 L 600,92 L 580,272 L 400,490 L 220,272 L 200,92 Z" fill="#000000" />
+    <path d="M 400,45 L 590,82 L 570,262 L 400,475 L 230,262 L 210,82 Z" fill="url(#red3D)" stroke="#FF6666" stroke-width="1" />
+    <path d="M 400,60 L 575,95 L 555,255 L 400,455 L 245,255 L 225,95 Z" fill="url(#darkMetal3D)" />
+    <path d="M 400,60 L 575,95 L 565,160 L 400,120 L 235,160 L 225,95 Z" fill="#FFFFFF" opacity="0.05" />
+  </g>
+
+  <g opacity="0.6">
+    <path d="M 280,250 L 300,250 L 300,400 L 280,380 Z" fill="url(#red3D)" />
+    <path d="M 330,250 L 350,250 L 350,425 L 330,405 Z" fill="url(#red3D)" />
+    <path d="M 380,250 L 420,250 L 420,445 L 380,445 Z" fill="url(#red3D)" />
+    <path d="M 450,250 L 470,250 L 470,425 L 450,405 Z" fill="url(#red3D)" />
+    <path d="M 500,250 L 520,250 L 520,400 L 500,380 Z" fill="url(#red3D)" />
+  </g>
+
+  <g transform="translate(230, 100) scale(0.65)" filter="url(#deepShadow)">
+    <path d="M 35 10 Q 50 35 65 10 L 90 20 L 100 50 L 80 60 L 80 120 L 20 120 L 20 60 L 0 50 L 10 20 Z" fill="#111111" stroke="url(#red3D)" stroke-width="4"/>
+    <path d="M 10 20 L 35 10 L 40 25 L 15 35 Z" fill="#FFFFFF" opacity="0.15" />
+    <path d="M 35 40 L 35 120 M 50 40 L 50 120 M 65 40 L 65 120" stroke="url(#red3D)" stroke-width="5"/>
+  </g>
+
+  <g transform="translate(500, 100) scale(0.65)" filter="url(#deepShadow)">
+    <path d="M 35 10 Q 50 35 65 10 L 90 20 L 100 50 L 80 60 L 80 120 L 20 120 L 20 60 L 0 50 L 10 20 Z" fill="#1A1A1A" stroke="url(#red3D)" stroke-width="4"/>
+    <path d="M 90 20 L 65 10 L 60 25 L 85 35 Z" fill="#FFFFFF" opacity="0.15" />
+    <path d="M 0 50 L 20 60 M 100 50 L 80 60" stroke="url(#red3D)" stroke-width="4"/>
+  </g>
+
+  <g transform="translate(400, 160)" filter="url(#deepShadow)">
+    <circle r="52" fill="#000000" />
+    <circle r="50" fill="url(#ballVolume)" stroke="#111" stroke-width="2" />
+    
+    <g fill="url(#ballShadow)" stroke="#000000" stroke-width="2">
+      <polygon points="0,-18 16,-6 10,14 -10,14 -16,-6" />
+      <polygon points="0,-50 -15,-45 -28,-47" fill="none" stroke-width="3" />
+      <path d="M -16,-6 L -42,-24 L -48,-10 L -45,12 L -10,14" />
+      <path d="M 16,-6 L 42,-24 L 48,-10 L 45,12 L 10,14" />
+      <path d="M -10,14 L -20,42 L 0,50 L 20,42 L 10,14" />
+    </g>
+    <ellipse cx="-15" cy="-25" rx="15" ry="8" fill="#FFFFFF" opacity="0.4" transform="rotate(-30 -15 -25)" />
+  </g>
+
+  <g filter="url(#deepShadow)">
+    <path d="M 115,265 L 685,265 L 645,355 L 155,355 Z" fill="#220000" />
+    <path d="M 110,245 L 690,245 L 650,340 L 150,340 Z" fill="url(#darkMetal3D)" stroke="url(#red3D)" stroke-width="5" />
+    <path d="M 112,248 L 688,248" stroke="#FF8888" stroke-width="2" opacity="0.7" />
+  </g>
+
+  <g transform="translate(400, 315)">
+    <text x="3" y="8" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-style="italic" text-anchor="middle" fill="#000000">JERSEY</text>
+    <text x="2" y="5" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-style="italic" text-anchor="middle" fill="#550000">JERSEY</text>
+    <text x="1" y="3" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-style="italic" text-anchor="middle" fill="#880000">JERSEY</text>
+    <text x="0" y="0" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-style="italic" text-anchor="middle" fill="url(#textSilver3D)" stroke="#000000" stroke-width="3">JERSEY</text>
+    <text x="-1" y="-2" font-family="'Impact', 'Arial Black', sans-serif" font-size="82" font-style="italic" text-anchor="middle" fill="none" stroke="#FFFFFF" stroke-width="1" opacity="0.6">JERSEY</text>
+  </g>
+
+  <g transform="translate(0, 345)" filter="url(#glowEdge)">
+    <line x1="250" y1="22" x2="310" y2="22" stroke="url(#red3D)" stroke-width="5" />
+    <line x1="490" y1="22" x2="550" y2="22" stroke="url(#red3D)" stroke-width="5" />
+    
+    <text x="402" y="32" font-family="'Impact', 'Arial Black', sans-serif" font-size="30" letter-spacing="8" text-anchor="middle" fill="#000000">STORE</text>
+    <text x="400" y="30" font-family="'Impact', 'Arial Black', sans-serif" font-size="30" letter-spacing="8" text-anchor="middle" fill="#FFFFFF">STORE</text>
+  </g>
+
+  <g transform="translate(0, 5)" filter="url(#deepShadow)">
+    <polygon points="400,55 404,65 415,65 406,72 409,82 400,76 391,82 394,72 385,65 396,65" fill="url(#red3D)" stroke="#000" stroke-width="1"/>
+    <polygon points="360,62 363,70 372,70 365,75 367,83 360,78 353,83 355,75 348,70 357,70" fill="url(#red3D)" stroke="#000" stroke-width="1"/>
+    <polygon points="440,62 443,70 452,70 445,75 447,83 440,78 433,83 435,75 428,70 437,70" fill="url(#red3D)" stroke="#000" stroke-width="1"/>
+    <polygon points="325,75 328,83 337,83 330,88 332,96 325,91 318,96 320,88 313,83 322,83" fill="url(#red3D)" stroke="#000" stroke-width="1"/>
+    <polygon points="475,75 478,83 487,83 480,88 482,96 475,91 468,96 470,88 463,83 472,83" fill="url(#red3D)" stroke="#000" stroke-width="1"/>
+  </g>
+</svg>
