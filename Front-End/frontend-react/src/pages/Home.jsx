@@ -73,7 +73,7 @@ function Home() {
     async function loadFeaturedProducts() {
       try {
         const products = await getProducts();
-        setFeaturedProducts(products.slice(0, 6));
+        setFeaturedProducts(products.slice(0, 3));
       } catch (error) {
         console.error("Error al cargar productos destacados", error);
       }
