@@ -35,15 +35,15 @@ function Login() {
   function fillDemoUser(type) {
     if (type === "admin") {
       setForm({
-        email: "Kevin2345@gmail.com",
+        email: "joaquin@gmail.com",
         password: "123456",
       });
     }
 
     if (type === "cliente") {
       setForm({
-        email: "cliente@gmail.com",
-        password: "123456",
+        email: "Kevin2345@gmail.com",
+        password: "12344321@",
       });
     }
   }

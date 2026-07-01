@@ -178,6 +178,47 @@ function Home() {
         </section>
       )}
 
+      <section className="shop-categories-section">
+        <article className="shop-category-card">
+          <img src="/Imagenes Camisetas/Mbappé.png" alt="Shop Club Legends" />
+
+          <div className="shop-category-content">
+            <h2>Shop Club Legends</h2>
+            <p>Camisetas de los clubes más grandes del mundo.</p>
+
+            <Link to="/productos" className="btn">
+              Comprar ahora
+            </Link>
+          </div>
+        </article>
+
+        <article className="shop-category-card">
+          <img src="/Imagenes Camisetas/Messi.png" alt="Shop Selecciones" />
+
+          <div className="shop-category-content">
+            <h2>Shop Selecciones</h2>
+            <p>Representá los colores de tu país con estilo.</p>
+
+            <Link to="/productos" className="btn">
+              Ver colección
+            </Link>
+          </div>
+        </article>
+
+        <article className="shop-category-card">
+          <img src="/Imagenes Camisetas/Haland.png" alt="Rep Your Team" />
+
+          <div className="shop-category-content">
+            <h2>Rep Your Team</h2>
+            <p>Vestí la pasión de tu equipo favorito.</p>
+
+            <Link to="/productos" className="btn">
+              Explorar
+            </Link>
+          </div>
+        </article>
+      </section>
+
       <section className="featured-teams-section">
         <span className="eyebrow">Equipos y selecciones</span>
         <h2>Colores que representan historia</h2>
