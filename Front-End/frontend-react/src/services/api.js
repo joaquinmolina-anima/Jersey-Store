@@ -82,3 +82,7 @@ export function updateOrderStatus(id, estado) {
     body: JSON.stringify({ estado }),
   });
 }
+
+export function getOrderDetails(orderId) {
+  return request(`/pedidos/${orderId}/detalles`);
+}

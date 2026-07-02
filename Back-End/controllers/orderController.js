@@ -3,6 +3,12 @@ const Order = require("../models/Order");
 exports.createOrder = (req, res) => {
   const { usuario_id, carrito, total } = req.body;
 
+  if (!usuario_id) {
+    return res.status(400).json({
+      mensaje: "Falta el usuario del pedido",
+    });
+  }
+
   if (!carrito || carrito.length === 0) {
     return res.status(400).json({
       mensaje: "El carrito está vacío",
@@ -11,6 +17,8 @@ exports.createOrder = (req, res) => {
 
   Order.create(usuario_id, total, (error, result) => {
     if (error) {
+      console.error(error);
+
       return res.status(500).json({
         mensaje: "Error al crear pedido",
       });
@@ -22,7 +30,7 @@ exports.createOrder = (req, res) => {
       Order.createDetail(
         pedido_id,
         producto.id,
-        producto.cantidad || 1,
+        producto.quantity || producto.cantidad || 1,
         producto.precio,
         () => {},
       );
@@ -38,6 +46,8 @@ exports.createOrder = (req, res) => {
 exports.getOrders = (req, res) => {
   Order.getAll((error, results) => {
     if (error) {
+      console.error(error);
+
       return res.status(500).json({
         mensaje: "Error al obtener pedidos",
       });
@@ -53,6 +63,8 @@ exports.updateOrderStatus = (req, res) => {
 
   Order.updateStatus(id, estado, (error, result) => {
     if (error) {
+      console.error(error);
+
       return res.status(500).json({
         mensaje: "Error al actualizar estado",
       });
@@ -69,6 +81,8 @@ exports.getOrdersByUser = (req, res) => {
 
   Order.getByUser(usuario_id, (error, results) => {
     if (error) {
+      console.error(error);
+
       return res.status(500).json({
         mensaje: "Error al obtener pedidos del usuario",
       });
@@ -83,6 +97,8 @@ exports.getOrderDetails = (req, res) => {
 
   Order.getDetails(pedido_id, (error, results) => {
     if (error) {
+      console.error(error);
+
       return res.status(500).json({
         mensaje: "Error al obtener detalle del pedido",
       });

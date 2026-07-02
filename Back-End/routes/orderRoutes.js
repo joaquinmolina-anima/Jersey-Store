@@ -8,8 +8,8 @@ router.get("/", orderController.getOrders);
 
 router.get("/usuario/:usuario_id", orderController.getOrdersByUser);
 
-router.put("/:id", orderController.updateOrderStatus);
+router.get("/:id/detalles", orderController.getOrderDetails);
 
-router.get("/:id/detalle", orderController.getOrderDetails);
+router.put("/:id", orderController.updateOrderStatus);
 
 module.exports = router;

@@ -186,7 +186,7 @@ function Checkout() {
           <div className="payment-brands">
             <span>VISA</span>
             <span>Mastercard</span>
-            <span>AMEX</span>
+            <span>OCA</span>
           </div>
 
           <input

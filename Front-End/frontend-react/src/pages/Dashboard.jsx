@@ -32,6 +32,7 @@ function Dashboard() {
   const [editingId, setEditingId] = useState(null);
   const [loading, setLoading] = useState(true);
   const [productToDelete, setProductToDelete] = useState(null);
+  const [orderFilter, setOrderFilter] = useState("todos");
 
   async function loadDashboard() {
     try {
@@ -149,6 +150,23 @@ function Dashboard() {
     return order.estado === "pendiente";
   }).length;
 
+  const preparingOrders = orders.filter((order) => {
+    return order.estado === "preparando";
+  }).length;
+
+  const shippedOrders = orders.filter((order) => {
+    return order.estado === "enviado";
+  }).length;
+
+  const deliveredOrders = orders.filter((order) => {
+    return order.estado === "entregado";
+  }).length;
+
+  const filteredOrders = orders.filter((order) => {
+    if (orderFilter === "todos") return true;
+    return order.estado === orderFilter;
+  });
+
   if (loading) {
     return <h2 className="page-message">Cargando dashboard...</h2>;
   }
@@ -179,6 +197,45 @@ function Dashboard() {
             <a href="#productos">👕 Productos</a>
             <a href="#pedidos">📦 Pedidos</a>
           </nav>
+
+          <div className="order-filter-box">
+            <h3>Estados de pedidos</h3>
+
+            <button
+              className={orderFilter === "todos" ? "active" : ""}
+              onClick={() => setOrderFilter("todos")}
+            >
+              📦 Todos <span>{orders.length}</span>
+            </button>
+
+            <button
+              className={orderFilter === "pendiente" ? "active" : ""}
+              onClick={() => setOrderFilter("pendiente")}
+            >
+              🟡 Pendientes <span>{pendingOrders}</span>
+            </button>
+
+            <button
+              className={orderFilter === "preparando" ? "active" : ""}
+              onClick={() => setOrderFilter("preparando")}
+            >
+              🔵 Preparando <span>{preparingOrders}</span>
+            </button>
+
+            <button
+              className={orderFilter === "enviado" ? "active" : ""}
+              onClick={() => setOrderFilter("enviado")}
+            >
+              🚚 Enviados <span>{shippedOrders}</span>
+            </button>
+
+            <button
+              className={orderFilter === "entregado" ? "active" : ""}
+              onClick={() => setOrderFilter("entregado")}
+            >
+              ✅ Entregados <span>{deliveredOrders}</span>
+            </button>
+          </div>
         </aside>
 
         <section className="dashboard-content">
@@ -318,18 +375,42 @@ function Dashboard() {
                     Stock: {product.stock} | Categoría: {product.categoria}
                   </small>
 
-                  <div className="admin-actions">
-                    <button className="btn" onClick={() => handleEdit(product)}>
-                      Editar
-                    </button>
+                  {productToDelete?.id === product.id ? (
+                    <div className="inline-confirm">
+                      <p>
+                        ¿Eliminar <strong>{product.nombre}</strong>?
+                      </p>
 
-                    <button
-                      className="btn btn-outline"
-                      onClick={() => setProductToDelete(product)}
-                    >
-                      Eliminar
-                    </button>
-                  </div>
+                      <div className="inline-confirm-actions">
+                        <button
+                          className="btn btn-outline"
+                          onClick={() => setProductToDelete(null)}
+                        >
+                          No
+                        </button>
+
+                        <button className="btn" onClick={confirmDeleteProduct}>
+                          Sí
+                        </button>
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="admin-actions">
+                      <button
+                        className="btn"
+                        onClick={() => handleEdit(product)}
+                      >
+                        Editar
+                      </button>
+
+                      <button
+                        className="btn btn-outline"
+                        onClick={() => setProductToDelete(product)}
+                      >
+                        Eliminar
+                      </button>
+                    </div>
+                  )}
                 </article>
               ))}
             </div>
@@ -337,9 +418,15 @@ function Dashboard() {
 
           <section className="dashboard-panel" id="pedidos">
             <h2>Pedidos recientes</h2>
+            <p className="orders-filter-title">
+              Mostrando:{" "}
+              <strong>
+                {orderFilter === "todos" ? "Todos los pedidos" : orderFilter}
+              </strong>
+            </p>
 
             <div className="orders-grid">
-              {orders.map((order) => (
+              {filteredOrders.map((order) => (
                 <article className="order-card" key={order.id}>
                   <h2>Pedido #{order.id}</h2>
 
@@ -369,6 +456,13 @@ function Dashboard() {
                   <div className="admin-actions">
                     <button
                       className="btn"
+                      onClick={() => handleOrderStatus(order.id, "pendiente")}
+                    >
+                      Pendiente
+                    </button>
+
+                    <button
+                      className="btn"
                       onClick={() => handleOrderStatus(order.id, "preparando")}
                     >
                       Preparando
@@ -394,32 +488,6 @@ function Dashboard() {
           </section>
         </section>
       </main>
-
-      {productToDelete && (
-        <div className="confirm-overlay">
-          <div className="confirm-modal">
-            <h2>Eliminar producto</h2>
-
-            <p>
-              ¿Seguro que querés eliminar{" "}
-              <strong>{productToDelete.nombre}</strong>?
-            </p>
-
-            <div className="confirm-actions">
-              <button
-                className="btn btn-outline"
-                onClick={() => setProductToDelete(null)}
-              >
-                Cancelar
-              </button>
-
-              <button className="btn" onClick={confirmDeleteProduct}>
-                Eliminar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }

@@ -198,6 +198,7 @@ function Home() {
           <div className="shop-category-content">
             <h2>Shop Selecciones</h2>
             <p>Representá los colores de tu país con estilo.</p>
+            <br />
 
             <Link to="/productos" className="btn">
               Ver colección
@@ -211,6 +212,7 @@ function Home() {
           <div className="shop-category-content">
             <h2>Rep Your Team</h2>
             <p>Vestí la pasión de tu equipo favorito.</p>
+            <br />
 
             <Link to="/productos" className="btn">
               Explorar
